@@ -15,6 +15,7 @@ public class GUIDemo extends JFrame
     private JPanel panel;
     private JButton biggerButton;
     private JButton smallerButton;
+    private JButton teleportButton;
 
     /**
      * Set up the application.
@@ -28,11 +29,14 @@ public class GUIDemo extends JFrame
         panel = new JPanel();
         biggerButton = new JButton("BIGGER");
         smallerButton = new JButton("SMALLER");
+	teleportButton = new JButton("Teleport");
         biggerButton.addActionListener(new ButtonHandler());
         smallerButton.addActionListener(new ButtonHandler());
+	teleportButton.addActionListener(new ButtonHandler());
         add(panel);
         panel.add(biggerButton);
         panel.add(smallerButton);
+	panel.add(teleportButton);
         setVisible(true);
     }
 
@@ -54,6 +58,12 @@ public class GUIDemo extends JFrame
             {
                 setSize(size.width + 10, size.height + 10);
             }
+	    else if (e.getSource().equals(teleportButton))
+	    {
+		//setTitle("I changed this");
+                setLocation(200, 200);
+	
+ 	    }
             else
             {
                 setSize(size.width - 10, size.height - 10);
